@@ -1,0 +1,9 @@
+def maximumProfit(prices):
+# Write your code here.
+    a=prices[0]
+    profit=0
+    for i in range(1,len(prices)):
+        m=prices[i]-a
+        a=min(prices[i],a)
+        profit=max(profit,m)
+    return profit
