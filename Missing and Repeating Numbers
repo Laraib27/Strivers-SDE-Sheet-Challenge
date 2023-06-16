@@ -1,0 +1,20 @@
+from math import *
+from collections import *
+from sys import *
+from os import *
+
+def missingAndRepeating(arr, n):
+	d={}
+	for i in arr:
+		if not i in d:
+			d[i]=True
+			
+		else:
+			r=i
+	
+	for i in range(1,n+1):
+		if not i in d:
+			m=i
+	return (m,r)
+			
+	pass
