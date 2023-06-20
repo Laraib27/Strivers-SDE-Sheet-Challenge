@@ -1,0 +1,19 @@
+def removeDuplicates(arr,n):
+    # Write your code here.
+    if n==0:
+        return 0
+    i=0
+    j=1
+    while j<n:
+        if arr[i]==arr[j]:
+            j+=1
+        else:
+            i+=1
+            arr[i]=arr[j]
+    return i+1  
+    
+#alternate solution using set
+def removeDuplicates(arr,n):
+    # Write your code here.
+    a=set(arr)
+    return len(a)
