@@ -1,0 +1,15 @@
+def majorityElementII(arr):
+	# Write your code here.
+	d={}
+	n=len(arr)
+	for i in arr:
+		if i not in d:
+			d[i]=1
+		else:
+			d[i]+=1
+		
+	k=[]
+	for key,v in d.items():
+		if d[key]>n/3:
+			k.append(key)
+	return k
