@@ -1,0 +1,23 @@
+def removeKthNode(head, k):
+    # Write your code here.
+    if head is None or k==0:
+        return head
+    dummy=head
+    t=0
+    while dummy:
+        t+=1
+        dummy=dummy.next
+    if k==t:
+        nextt=head.next
+        head.next=None
+        head=nextt
+    else:
+        temp=head
+        c=0
+        while temp:
+            c+=1
+            if t-k==c:
+                temp.next=temp.next.next
+                break
+            temp=temp.next
+    return head
