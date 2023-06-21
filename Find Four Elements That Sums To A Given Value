@@ -1,0 +1,15 @@
+def fourSum(arr, target):
+    # Write your code here
+    n=len(arr)
+    d={}
+    for i in range(n-1):
+        for j in range(i+1,n):
+            d[arr[i]+arr[j]]=[i,j]
+    for i in range(n-1):
+        for j in range(i+1,n):
+            s=arr[i]+arr[j]
+            if target-s in d:
+                a=d[target-s]
+                if a[0]!=i and a[0]!=j and a[1]!=i and a[1]!=j:
+                    return "Yes"
+    return "No"
