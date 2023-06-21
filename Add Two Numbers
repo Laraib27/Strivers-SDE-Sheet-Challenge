@@ -1,0 +1,23 @@
+
+def addTwoNumbers(head1: Node, head2: Node) -> Node:
+    # Write your code here.
+    dummy=Node(0)
+    temp=dummy
+    carry=0
+
+    while head1 or head2 or carry:
+        s=0
+        if head1:
+            s+=head1.data
+            head1=head1.next
+        if head2:
+            s+=head2.data
+            head2=head2.next
+        
+        s+=carry
+        carry=s//10
+        data=s%10
+        new=Node(data)
+        temp.next=new
+        temp=temp.next
+    return dummy.next
