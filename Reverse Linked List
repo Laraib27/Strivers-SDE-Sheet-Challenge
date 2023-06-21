@@ -1,0 +1,9 @@
+def reverseLinkedList(head):
+    # Write your code here.
+    d=None
+    while head:
+        nextt=head.next
+        head.next=d
+        d=head
+        head=nextt
+    return d
