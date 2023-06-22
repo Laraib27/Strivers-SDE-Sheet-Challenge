@@ -1,0 +1,18 @@
+def rotate(head: Node, k: int) -> Node:
+    # Write your code here.
+    t=head
+    l=1
+    while t.next:
+        l+=1
+        t=t.next
+    t.next=head
+    pos=l-(k%l)
+    d=head
+    while pos>1:
+        d=d.next
+        pos-=1
+    dd=None
+    h=d.next
+    d.next=dd
+    head=h
+    return head
