@@ -1,0 +1,19 @@
+
+def findIntersection(firstHead, secondHead):
+	# Write your code here.
+    if firstHead==None:
+        return secondHead
+    if secondHead==None:
+        return firstHead
+    a=firstHead
+    b=secondHead
+    while a!=b:
+        if a:
+            a=a.next
+        else:
+            a=secondHead
+        if b:
+            b=b.next
+        else:
+            b=firstHead
+    return a
