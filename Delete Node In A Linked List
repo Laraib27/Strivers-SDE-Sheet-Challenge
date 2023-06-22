@@ -1,0 +1,6 @@
+def deleteNode(node):
+    # Write your code here.
+    NextNode=node.next
+    node.data=NextNode.data
+    node.next=NextNode.next
+    LinkedListNode.__del__(NextNode)
