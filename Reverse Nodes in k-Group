@@ -1,0 +1,37 @@
+def getListAfterReverseOperation(head, n, b):
+    # Write your code here.
+    if head==None:
+        return head
+    
+    dummy=Node(0)
+    dummy.next=head
+    cur=dummy
+    prev=dummy
+    nextt=dummy
+    L=0
+    while cur.next:
+        L+=1
+        cur=cur.next
+    j=0
+    while L>1 and j<n:
+        cur=prev.next
+        nextt=cur.next
+        if b[j]==1:
+            prev=cur
+            L-=1
+            j+=1
+            continue
+        elif b[j]==0:
+            j+=1
+            continue
+        for i in range(1,min(L,b[j])):
+
+            cur.next=nextt.next
+            nextt.next=prev.next
+            prev.next=nextt
+            nextt=cur.next
+            
+        L-=b[j]
+        prev=cur
+        j+=1
+    return dummy.next
