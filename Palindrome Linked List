@@ -1,0 +1,26 @@
+            
+def isPalindrome(head):
+    if head==None or head.next==None:
+        return True
+    f=head
+    s=head
+    while f.next and f.next.next:
+        s=s.next
+        f=f.next.next
+    d=s.next
+    dd=None
+    while d:
+        nextt=d.next
+        d.next=dd
+        dd=d
+        d=nextt
+        
+    s.next=dd
+    s=s.next
+    dummy=head
+    while s:
+        if s.data!=dummy.data:
+            return False
+        s=s.next
+        dummy=dummy.next
+    return True
