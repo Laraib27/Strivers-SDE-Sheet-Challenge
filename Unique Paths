@@ -1,0 +1,8 @@
+def uniquePaths(m, n):
+	# Write your code here.
+	N=m+n-2
+	r=m-1
+	out=1
+	for i in range(1,r+1):
+		out=out*(N-r+i)//i
+	return out
