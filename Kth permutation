@@ -1,0 +1,18 @@
+def kthPermutation(n, k):
+f=1
+    num=[]
+    for i in range(1,n):
+        f=f*i
+        num.append(i)
+    num.append(n)
+    k=k-1
+    st=""
+    while True:
+        st=st+str(num[k//f])
+        num.pop(k//f)
+        if len(num)==0:
+            break
+        k=k%f
+        f=f//len(num)
+        
+    return st
