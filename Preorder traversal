@@ -1,0 +1,16 @@
+def getPreOrderTraversal(root):
+    # Write your code here.
+	st=[]
+	res=[]
+	node=root
+	while True:
+		if node:
+			st.append(node)
+			res.append(node.data)
+			node=node.left
+		else:
+			if not st:
+				break
+			node=st.pop()
+			node=node.right
+	return res
