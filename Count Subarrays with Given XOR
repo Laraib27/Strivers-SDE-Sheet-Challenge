@@ -1,0 +1,14 @@
+def subarraysXor(a, k):
+    n = len(a)
+    xr = 0
+    d = defaultdict(int)
+    d[xr] = 1
+    cnt = 0
+
+    for i in range(n):
+        xr = xr ^ a[i]
+        x = xr ^ k
+        cnt += d[x]
+        d[xr] += 1
+
+    return cnt
