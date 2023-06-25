@@ -1,0 +1,15 @@
+def getInOrderTraversal(root):
+    st=[]
+    res=[]
+    node=root
+    while True:
+        if node:
+            st.append(node)
+            node=node.left
+        else:
+            if not st:
+                break
+            node=st.pop()
+            res.append(node.data)
+            node=node.right
+    return res
