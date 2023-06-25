@@ -1,0 +1,12 @@
+def f(num,ind,s,res):
+    if ind==len(num):
+        res.append(s)
+        return
+    f(num,ind+1,s+num[ind],res)
+    f(num,ind+1,s,res)
+def subsetSum(num: List[int]) -> List[int]:
+    # Write your code here.
+    s=0
+    res=[]
+    f(num,0,s,res)
+    return res
