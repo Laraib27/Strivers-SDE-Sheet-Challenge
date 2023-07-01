@@ -1,0 +1,19 @@
+def f(ind,arr,res,st):
+    if ind==len(arr):
+        res.append(st[:])
+        return
+    else:
+        st.append(arr[ind])
+        f(ind+1,arr,res,st)
+        st.pop()
+        while (ind+1<len(arr) and arr[ind]==arr[ind+1]):
+            ind+=1
+        f(ind+1,arr,res,st)
+
+def uniqueSubsets(n :int,arr :List[int]) -> List[List[int]]:
+    res=[]
+    st=[]
+    arr=sorted(arr)
+    f(0,arr,res,st)
+    res.sort()
+    return res
