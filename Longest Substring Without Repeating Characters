@@ -1,0 +1,16 @@
+def uniqueSubstrings(input ) :
+    # Write your code here.
+    li=[]
+    c=0
+    maxi=-1
+    for i in input:
+        if i not in li:
+            li.append(i)
+            c+=1
+        else:
+            s=li.index(i)
+            li=li[s+1:]
+            li.append(i)
+            c=len(li)
+        maxi=max(maxi,c)
+    return maxi
