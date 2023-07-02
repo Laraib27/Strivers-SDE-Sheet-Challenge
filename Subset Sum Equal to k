@@ -1,0 +1,17 @@
+def s(arr,ind,k,dp):
+    if k==0:
+        return True
+    if ind==0:
+        return arr[0]==k
+    if dp[ind][k]!=-1:
+        return dp[ind][k]
+    
+    np=s(arr,ind-1,k,dp)
+    p=False
+    if arr[ind]<=k:
+        p=s(arr,ind-1,k-arr[ind],dp)
+    dp[ind][k]= p or np
+    return dp[ind][k]
+def subsetSumToK(n, k, arr):
+    dp=[[-1 for _ in range(k+1)]for _ in range(n)]
+    return s(arr,n-1,k,dp)
