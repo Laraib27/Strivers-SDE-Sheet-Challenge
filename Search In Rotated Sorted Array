@@ -1,0 +1,30 @@
+def pivot(arr,s,e):
+    mid=s+(e-s)//2
+    while s<e:
+        if arr[0]<=arr[mid]:
+            s=mid+1
+        else:
+            e=mid
+        mid=s+(e-s)//2
+    return s
+def binary(arr,s,e,target):
+    mid=s+(e-s)//2
+    while s<=e:
+        if arr[mid]==target:
+            return mid
+        elif arr[mid]>target:
+            e=mid-1
+        else:
+            s=mid+1
+        mid=s+(e-s)//2
+    return -1
+def search(arr, target) :
+    
+    # Write your code here.
+    pivott=pivot(arr,0,len(arr)-1)
+    if arr[pivott]<=target and target<=arr[len(arr)-1]:
+        return binary(arr,pivott,len(arr)-1,target)
+    else:
+        return binary(arr,0,pivott-1,target)
+    
+    pass
