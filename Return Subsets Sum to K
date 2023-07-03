@@ -1,0 +1,17 @@
+def f(arr,ind,n,k,st,res):
+    if ind==n:
+        if k==0:
+            res.append(st)
+
+        return
+    stt=st[:]
+    f(arr,ind+1,n,k,stt,res)
+    st.append(arr[ind])
+    f(arr,ind+1,n,k-arr[ind],st,res)
+    # st.pop()
+
+def findSubsetsThatSumToK(arr, n, k) :
+    # Write your code here.
+    res=[]
+    f(arr,0,n,k,[],res)
+    return res
