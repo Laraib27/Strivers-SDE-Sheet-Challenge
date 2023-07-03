@@ -1,0 +1,6 @@
+def findMinimumCoins(amount):
+	c=0
+	for i in range(len(denominations)-1,-1,-1):
+		c+=amount//denominations[i]
+		amount%=denominations[i]
+	return c
