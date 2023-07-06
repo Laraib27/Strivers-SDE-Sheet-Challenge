@@ -1,0 +1,15 @@
+def f(ind,n,arr,res,st):
+    if ind==n:
+        res.append(st[:])
+        return
+    nt=f(ind+1,n,arr,res,st)
+    st.append(arr[ind])
+    t=f(ind+1,n,arr,res,st)
+    st.pop()
+def pwset(v):
+    # Write your code here
+    # Return a 2-D list containing all subsets
+    res=[]
+    st=[]
+    f(0,len(v),v,res,st)
+    return res
