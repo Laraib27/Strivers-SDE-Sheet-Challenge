@@ -1,0 +1,20 @@
+def reverseString(str: str) -> str:
+    # Write your code from here.
+    i=0
+    n=len(str)
+    res=" "
+    while i<n:
+        while i<n and str[i]==" ":
+            i+=1
+        if i>=n:
+            break
+        j=i+1
+        while j<n and str[j]!=" ":
+            j+=1
+        word=str[i:j]
+        if len(res)==0:
+            res=word
+        else:
+            res=word+" "+res
+        i=j+1
+    return res
