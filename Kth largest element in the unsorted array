@@ -1,0 +1,18 @@
+import heapq
+def kthLargest(arr, size, k):
+    data=[]
+    heapq.heapify(data)
+    for i in range(size):
+        data.append(-(arr[i]))
+    heapq.heapify(data)
+    while k-1>0:
+        heapq.heappop(data)
+        k-=1
+    return (-heapq.heappop(data))
+
+#alternate
+def kthLargest(arr, size, k):
+    # Write your code here.
+    arr.sort(reverse=True)
+    kk=arr[k-1]
+    return kk
