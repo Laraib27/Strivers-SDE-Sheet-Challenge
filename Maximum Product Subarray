@@ -1,0 +1,16 @@
+def maximumProduct(arr, n):
+    # write your code here
+    # Return an integer denoting the answer to the required problem
+    p=1
+    p1=1
+    maxi=-1e9
+    for i in range(n):
+        if p==0:
+            p=1
+        if p1==0:
+            p1=1
+
+        p1=p1*arr[n-i-1]
+        p=arr[i]*p
+        maxi=max(maxi,max(p1,p))
+    return maxi
