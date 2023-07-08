@@ -14,3 +14,19 @@ def getLevelOrder(root):
                 q.append(qq.right)
             l.append(qq.val)
     return l
+//alternate
+def getLevelOrder(root):
+    q=deque()
+    l=[]
+    if not root:
+        return l
+    q.append(root)
+    while q:
+          
+        qq=q.popleft()
+        if qq.left:
+            q.append(qq.left)
+        if qq.right:
+            q.append(qq.right)
+            
+    return l
