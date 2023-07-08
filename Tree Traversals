@@ -1,0 +1,19 @@
+def f(root,pre,inn,post):
+    if root==None:
+        return
+    pre.append(root.data)
+    f(root.left,pre,inn,post)
+    inn.append(root.data)
+    f(root.right,pre,inn,post)
+    post.append(root.data)
+    
+def getTreeTraversal(root):
+    ans=[]
+    pre=[]
+    inn=[]
+    post=[]
+    f(root,pre,inn,post)
+    ans.append(inn)
+    ans.append(pre)
+    ans.append(post)
+    return ans
