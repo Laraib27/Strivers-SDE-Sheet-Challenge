@@ -1,0 +1,19 @@
+from collections import deque
+def getMaxWidth(root):
+  if root==None:
+    return 0
+  q=deque()
+  maxi=0
+  q.append(root)
+  while q:
+    l=[]
+    n=len(q)
+    maxi=max(maxi,n)
+    for i in range(n):
+      qq=q.popleft()
+      if qq.left:
+        q.append(qq.left)
+      if qq.right:
+        q.append(qq.right)
+      l.append(qq)
+  return maxi
