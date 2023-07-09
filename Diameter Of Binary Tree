@@ -1,0 +1,14 @@
+def diameterOfBinaryTree(root):
+	# Write your code here
+	# Return the root of the tree
+    maxi=0
+    def height(root):
+        if root==None:
+            return 0
+        h1=height(root.left)
+        h2=height(root.right)
+        nonlocal maxi
+        maxi=max(h1+h2,maxi)
+        return max(h1,h2)+1
+    height(root)
+    return maxi
