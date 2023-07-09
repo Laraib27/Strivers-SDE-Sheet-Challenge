@@ -1,0 +1,9 @@
+def f(left,right):
+    if left==None or right==None:
+        return left==None
+    return left.data==right.data and f(left.left,right.right) and f(left.right,right.left)
+
+def isSymmetric(root) :
+    # Write your code here.
+    return root==None or f(root.left,root.right)
+    pass
