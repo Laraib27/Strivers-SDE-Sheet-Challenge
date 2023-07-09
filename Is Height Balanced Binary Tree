@@ -1,0 +1,16 @@
+def height(root):
+  if root==None:
+    return 0
+  h1=height(root.left)
+  h2=height(root.right)
+  if h1==-1 or h2==-1:
+    return -1
+  if abs(h1-h2)>1:
+    return -1
+  mxi=max(h1,h2)+1
+  return mxi
+
+def isBalancedBT(root):
+
+    return height(root)!=-1
+    pass
