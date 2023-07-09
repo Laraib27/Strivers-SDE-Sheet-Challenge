@@ -1,0 +1,37 @@
+def left(root,ans):
+    if root==None:
+        return 
+    if root.left==None and root.right==None:
+        return 
+    ans.append(root.data)
+    if root.left:
+        left(root.left,ans)
+    else:
+        left(root.right,ans)
+def leaf(root,ans):
+    if root==None:
+        return
+    if root.left==None and root.right==None:
+        ans.append(root.data)
+        return
+    leaf(root.left,ans)
+    leaf(root.right,ans)
+def right(root,ans):
+    if root==None or root.left==None and root.right==None:
+        return
+    if root.right:
+        right(root.right,ans)
+    else:
+        right(root.left,ans)
+    ans.append(root.data)
+def traverseBoundary(root):
+    # Write your code here.
+    ans=[]
+    if root==None:
+        return ans
+    ans.append(root.data)
+    left(root.left,ans)
+    leaf(root.left,ans)
+    leaf(root.right,ans)
+    right(root.right,ans)
+    return ans
