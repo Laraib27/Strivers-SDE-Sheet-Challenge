@@ -1,0 +1,13 @@
+def left(root,ans,l):
+    if root==None:
+        return
+    if l==len(ans):
+        ans.append(root.data)
+    left(root.left,ans,l+1)
+    left(root.right,ans,l+1)
+def getLeftView(root)->list:
+    # Write your code here
+    # Return a list
+    ans=[]
+    left(root,ans,0)
+    return ans
