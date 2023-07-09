@@ -1,0 +1,18 @@
+def getTopView(root):
+    # Write your code here.
+    d=defaultdict(list)
+    def f(x,y,root):
+        if root==None:
+            return
+        f(x-1,y+1,root.left)
+        f(x+1,y+1,root.right)
+        d[(x,y)].append(root.val)
+    f(0,0,root)
+    # print(sorted(d.items()))
+    res=[]
+    old=float('-inf')
+    for k,v in sorted(d.items()):
+        if k[0]!=old:
+            res.append(*v)
+        old=k[0]
+    return res
