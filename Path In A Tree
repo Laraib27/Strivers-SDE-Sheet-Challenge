@@ -1,0 +1,18 @@
+def path(root,l,x):
+    if root==None:
+        return 
+    
+    if root.data==x:
+        l.append(root.data)
+        return
+    l.append(root.data)
+    path(root.left,l,x)
+    path(root.right,l,x)
+    if l[len(l)-1]!=x:
+        l.pop()
+
+def pathInATree(root: TreeNode, x: int) -> List[int]:
+    # Write your code here.
+    l=[]
+    path(root,l,x)
+    return l
