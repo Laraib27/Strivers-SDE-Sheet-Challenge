@@ -1,0 +1,30 @@
+from collections import deque
+def zigZagTraversal(root):
+    ans=[]
+    if root == None:
+        return ans
+    q=deque()
+    q.append(root)
+    
+    
+    flag=True
+    while q:
+        l=[]
+        n=len(q)
+        for i in range(n):
+            qq=q.popleft()
+            if qq.left:
+                q.append(qq.left)
+            if qq.right:
+                q.append(qq.right)
+            l.append(qq.data)
+        ll=len(l)
+        if flag==True:
+            for i in l:
+                ans.append(i)
+        else:
+            for i in range(ll-1,-1,-1):
+                ans.append(l[i])
+            # ans.append(l[::-1])
+        flag=not flag
+    return ans
