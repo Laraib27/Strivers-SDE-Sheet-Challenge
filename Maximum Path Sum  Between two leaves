@@ -1,0 +1,16 @@
+def findMaxSumPath(root):
+    if root==None:
+        return -1
+    if root.left==None or root.right==None:
+        return -1
+    maxi=0
+    def f(root):
+        if root==None:
+            return 0
+        a=f(root.left)
+        nonlocal maxi
+        b=f(root.right)
+        maxi=max(maxi,root.val+(a+b))
+        return root.val+max(a,b)
+    f(root)
+    return maxi
