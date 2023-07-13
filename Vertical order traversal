@@ -1,0 +1,27 @@
+def mapp(root,mp,x,y):
+    if root==None:
+        return 
+    mp[(x,y)].append(root.data)
+    mapp(root.left,mp,x-1,y+1)
+    mapp(root.right,mp,x+1,y+1)
+    
+def verticalOrderTraversal(root):
+	# Write your code here
+	# Return a list
+    mp=defaultdict(list)
+    mapp(root,mp,0,0)
+    lis=[]
+    old=-1e9
+    old1=-1e9
+    # print(sorted(mp.items()))
+    for k,v in sorted(mp.items()):
+        # old=k[0]
+        if k[0] or k[1]!=old:
+            lis.append(v)
+        old=k[0]
+        old1=k[1]
+    li=[]
+    for i in lis:
+        for y in i:
+            li.append(y)
+    return li
