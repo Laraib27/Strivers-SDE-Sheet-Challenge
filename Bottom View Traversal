@@ -1,0 +1,19 @@
+def bottomView(root):
+    d=defaultdict(list)
+    def f(x,y,root):
+        if root==None:
+            return
+        d[(x,y)].append(root.data)
+        f(x-1,y+1,root.left)
+        f(x+1,y+1,root.right)
+        
+    f(0,0,root)
+    # print(sorted(d.items()))
+    res=[]
+    old=float('inf')
+    for k,v in sorted(d.items(),reverse=True):
+        if k[0]!=old:
+            res.append(v[-1])
+        old=k[0]
+    
+    return res[::-1]
