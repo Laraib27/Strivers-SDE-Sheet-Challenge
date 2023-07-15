@@ -1,0 +1,34 @@
+def path(root,node,a,res):
+    if root==None:
+        return False
+    a.append(root.data)
+    if root.data==node:
+        res.append(a[:])
+        return True
+    if path(root.left,node,a,res) or path(root.right,node,a,res):
+        return True
+    a.pop()
+    return False
+    
+def lowestCommonAncestor(root, x, y):
+	# Write your code here.
+    if root==None:
+        return root
+    res=[]
+    # a=[]
+    path(root,x,[],res)
+    path(root,y,[],res)
+    p1=res[0]
+    p2=res[1]
+    n1=len(p1)
+    n2=len(p2)
+    i=0
+    j=0
+    while i<n1 and j<n2:
+        if p1[i]==p2[j]:
+            i+=1
+            j+=1
+        else:
+            return p1[i-1]
+
+    return p1[i-1]
