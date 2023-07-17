@@ -1,0 +1,28 @@
+
+
+#Binary tree node class for reference
+class BinaryTreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
+
+def buildBinaryTree(preorder:list, inorder:list):
+    mp={}
+    for i,e in enumerate(inorder):
+        mp[e]=i
+    # print((mp))
+    def f(prestart,prend,preorder,instart,inend,inorder,mp):
+        if prestart>prend or instart>inend:
+            return None
+        root=BinaryTreeNode(preorder[prestart])
+        indr=mp[root.data]
+        leftelement=indr-instart
+        root.left=f(prestart+1,prestart+leftelement,preorder,instart,indr-1,inorder,mp)
+        root.right=f(prestart+leftelement+1,prend,preorder,indr+1,inend,inorder,mp)
+        return root
+    return f(0,len(preorder)-1,preorder,0,len(inorder)-1,inorder,mp)
+    # return root
+    pass
