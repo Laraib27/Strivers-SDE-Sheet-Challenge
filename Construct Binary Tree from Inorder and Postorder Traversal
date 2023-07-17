@@ -1,0 +1,28 @@
+
+	#Following is the TreeNode class structure
+
+class   TreeNode :
+	def __init__(self, data) :
+		self.data = data
+		self.left = None
+		self.right = None
+
+
+
+def getTreeFromPostorderAndInorder(postOrder, inOrder):
+	# Write your code here.
+	if len(inOrder)!=len(postOrder):
+		return None
+	mp={}
+	for i,e in enumerate(inOrder):
+		mp[e]=i
+	def f(instart,inend,inOrder,postart,posend,postOrder,mp):
+		if instart>inend or postart>posend:
+			return None
+		root=TreeNode(postOrder[posend])
+		ind=mp[root.data]
+		left=ind-instart
+		root.left=f(instart,ind-1,inOrder,postart,postart+left-1,postOrder,mp)
+		root.right=f(ind+1,inend,inOrder,postart+left,posend-1,postOrder,mp)
+		return root
+	return f(0,len(inOrder)-1,inOrder,0,len(postOrder)-1,postOrder,mp)
