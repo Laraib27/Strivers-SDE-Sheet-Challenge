@@ -1,0 +1,21 @@
+def f(root):
+    q=deque()
+    q.append(root)
+    while q:
+        n=len(q)
+        
+        for i in range(n):
+            
+            qq=q.popleft()
+            if i<n-1:
+                qq.next=q[0]
+            if qq.left:
+                q.append(qq.left)
+            if qq.right:
+                q.append(qq.right)
+            
+def connectNodes(root):
+    if root==None:
+        return root
+    # Write your code here.
+    return f(root)
