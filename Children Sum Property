@@ -1,0 +1,32 @@
+def f(root):
+    s=0
+    if root==None:
+        return 
+    if root.left:       
+        s+=root.left.data
+    if root.right:
+        s+=root.right.data
+    if root.data<=s:
+        root.data=s
+    else:
+        if root.left:
+            root.left.data=root.data
+        if root.right:
+            root.right.data=root.data
+    # root.left.data=root.right.data=s
+    f(root.left)
+    f(root.right)
+    t=0
+    if root.left:       
+        t+=root.left.data
+    if root.right:
+        t+=root.right.data 
+    if root.left or root.right:
+        root.data=t
+    
+    
+def changeTree(root):
+    if root==None:
+        return
+    # Write your code here.
+    return f(root)
