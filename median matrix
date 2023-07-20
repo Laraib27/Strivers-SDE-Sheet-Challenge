@@ -1,0 +1,18 @@
+def getMedian(matrix):
+    l=[]
+    # Write your code here.
+    n=len(matrix)
+    m=len(matrix[0])
+    # print(n,m)///////
+    if n==1 and m%2==0:
+        return matrix[0][m//2]
+    elif n==1 and m%2==1:
+        return matrix[0][(m//2)]
+    else:
+        for i in matrix:
+            l.extend(i)
+        l=sorted(l)
+        nn=len(l)
+        # print(nn//2)
+        # print(l[(nn//2)+1])
+        return l[nn//2]
